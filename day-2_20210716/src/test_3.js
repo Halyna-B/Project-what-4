@@ -2,9 +2,9 @@ function areaOfTriangles(...triangles) {
 
 }
 
-chessBoard();
+areaOfTriangles();
 
 mocha.setup('bdd');
-const assert = chai.assert;
+// const assert = chai.assert;
 
 //Tests
