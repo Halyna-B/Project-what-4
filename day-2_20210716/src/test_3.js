@@ -17,7 +17,7 @@ describe("Verify that function areaOfTriangles is working correct", function () 
         { vertices: "DFE", d: 2.35, f: 1.79, e: 1.56 },
         { vertices: "MKN", m: 7.97, k: 3.61, n: 7 }
       ]),
-      ["ABC", "MKN", "DFE"]
+      ['ABC', 'MKN', 'DFE']
     );
   });
 
@@ -28,7 +28,7 @@ describe("Verify that function areaOfTriangles is working correct", function () 
         { vertices: "DFE", d: 45.89, f: 71.31, e: 100 },
         { vertices: "MKN", m: 30.79, k: 23.03, n: 30.79 }
       ]),
-      ["DFE", "ABC", "MKN"]
+      ['DFE', 'ABC', 'MKN']
     );
   });
 
@@ -88,7 +88,7 @@ describe("Verify that accepts objects in a function areaOfTriangles are not tria
           { vertices: "ABC", a: 42.7, b: 21.85, c: 10 },
           { vertices: "DFE", d: 69.51, f: 37.84, e: 77.9 },
           { vertices: "MKN", m: 51.9, k: 31.72, n: 80 }
-        ]), ["DFE", "ABC", "MKN"],
+        ]), ['DFE', 'ABC', 'MKN'],
         `{status:'failed', reason:TypeError: argument of this function should be an array of objects with triangles, 'ABC' is not triangle}`
       );
     });
@@ -99,9 +99,37 @@ describe("Verify that accepts objects in a function areaOfTriangles are not tria
           { vertices: "ABC", a: 12, b: 25, c: 27.9 },
           { vertices: "DFE", d: 0.7, f: 31.84, e: 22.1 },
           { vertices: "MKN", m: 4, k: 1.24, n: 3 }
-        ]), ["ABC", "DFE", "MKN"],
+        ]), ['ABC', 'DFE', 'MKN'],
         `{status:'failed', reason:TypeError: argument of this function should be an array of objects with triangles, 'DFE' is not triangle}`
       );
     });
   
   });
+
+//Accepts incorrect objects 
+describe("Verify that accepts objects in a function areaOfTriangles are not correct", function () {
+
+    it("Objects { vertices:'MKN', m: 7.97, k: '3.61', n: 7 } has incorrect value 'k' - string ", function () {
+      assert.fail(
+        areaOfTriangles([
+          { vertices: "ABC", a: 10, b: 20, c: 22.36 },
+          { vertices: "DFE", d: 2.35, f: 1.79, e: 1.56 },
+          { vertices: "MKN", m: 7.97, k: '3.61', n: 7 },
+          { vertices: "FEO", f: 9.12, e: 23.03, o: 30.79 }
+        ]), ['ABC', 'FEO', 'MKN', 'DFE'],
+        `{status:'failed', reason:TypeError: the sides of the triangle must be numbers, 'k' should be equal a number}`
+      );
+    });
+  
+    it("Object { vertices: 'DFE', d: 2.35, f: 1.79, e: -1.56 } has incorrect value 'e' - negative number  ", function () {
+      assert.fail(
+        areaOfTriangles([
+            { vertices: "ABC", a: 10, b: 20, c: 22.36 },
+            { vertices: "DFE", d: 2.35, f: 1.79, e: -1.56 },
+            { vertices: "MKN", m: 7.97, k: 3.61, n: 7 }
+          ]), ['ABC', 'MKN', 'DFE'],
+        `{status:'failed', reason:TypeError: the sides of the triangle must be positive numbers, 'e' should be equal a positive number}`
+      );
+    });  
+
+})

@@ -35,29 +35,42 @@ describe("Verify that function attachEnvelope is working correct", function () {
 //Incorrect arguments
 describe("Verify that function attachEnvelope accepts incorrect arguments", function () {
 
-  it("Function attachEnvelope with env1{a:0, b:389.2}, env2{c:-42, d:81.2} accepts arguments <= 0 ", function () {
+  it("Function attachEnvelope accepts object with argument 0 ", function () {
     assert.fail( chessBoard({ a: 0, b: 389.2 }, { c: 42, d: 81.2 }), 0,
       `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of this function should be > 0'}`
     );
   });
 
-  it("Function attachEnvelope with env1{a:0, b:389.2}, env2{c:-42, d:81.2} accepts arguments <= 0 ", function () {
+  it("Function attachEnvelope accepts object with arguments <= 0 ", function () {
     assert.fail( chessBoard({ a: -31.95, b: 389.2 }, { c: -42, d: 81.2 }), 0,
-      `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of this function should be > 0'}`
+      `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of objects should be > 0'}`
     );
   });
 
-  it("Function attachEnvelope with env1{a:'1795.87', b:8423.8}, env2{c:'c', d:3961.9} accepts strings ", function () {
+  it("Function attachEnvelope accepts object with arguments strings ", function () {
     assert.fail( chessBoard({ a: "1795.87", b: 8423.8 }, { c: "c", d: 3961.9 }), 0,
-      `{status:'failed', reason:'TypeError: incorrect data type was accept, arguments of this function should be equal number'}`
+      `{status:'failed', reason:'TypeError: incorrect data type was accept, arguments of objects should be equal number'}`
     );
   });
 
-  it("Function attachEnvelope with env1{a:14832.39, b:94217.96}, env2{c:2368916.92, d:49282.92} accepts arguments > 1000000 ", function () {
+  it("Function attachEnvelope accepts object with arguments > 1000000 ", function () {
     assert.fail( chessBoard({ a: 14832.39, b: 94217.96 }, { c: 2368916.92, d: 49282.92 }), 0,
-      `{status:'failed', reason:'TypeError: incorrect data type was accept, arguments of this function should be < 1000000'}`
+      `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of objects should be < 1000000'}`
     );
   });
+
+  it("Function attachEnvelope accepts more then two objects ", function () {
+    assert.fail( chessBoard({ a: 142.39, b: 917.96 }, { c: 2366.92, d: 492.92 }, { c: 36891.2, d: 2.92 }), 0,
+      `{status:'failed', reason:'TypeError: incorrect number of objects was accept, function attachEnvelope should accepts two objects'}`
+    );
+  });
+
+  it("Function attachEnvelope accepts 1 objects ", function () {
+    assert.fail( chessBoard({ a: 142.39, b: 917.96 }), 0,
+      `{status:'failed', reason:'TypeError: incorrect number of objects was accept, function attachEnvelope should accepts two objects'}`
+    );
+  });
+
 });
 
 //Return correct data type
