@@ -25,8 +25,8 @@ describe("Verify that function numberSequence is working correct", function () {
 
 })
 
-// Return correct data type
-describe("Verify that function numberSequence return correct data ", function () {
+// Return correct data 
+describe("Verify that function numberSequence return correct data type string ", function () {
 
   it("Function numberSequence with n=7 m=149 return string '13,14,15,16,17,18,19'", function () {
       assert.isString( numberSequence(7, 149), "return correct type of data - '13,14,15,16,17,18,19' is a string");
