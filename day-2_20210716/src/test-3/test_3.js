@@ -4,6 +4,8 @@ areaOfTriangles();
 
 mocha.setup("bdd");
 
+const assert = chai.assert;
+
 
 //Tests
 
@@ -133,3 +135,5 @@ describe("Verify that accepts objects in a function areaOfTriangles are not corr
     });  
 
 })
+
+mocha.run();

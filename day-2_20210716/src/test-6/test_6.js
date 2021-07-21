@@ -4,6 +4,8 @@ areaOfTriangles();
 
 mocha.setup("bdd");
 
+const assert = chai.assert;
+
 //Correct working
 describe("Verify that function numberSequence is working correct", function () {
   it("Function numberSequence with n=5 m=50 return '8,9,10,11,12'", function () {
@@ -92,3 +94,6 @@ describe("Verify that function numberSequence accepts incorrect parameters", fun
     );
   });
 });
+
+
+mocha.run();

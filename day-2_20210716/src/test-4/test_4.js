@@ -4,6 +4,8 @@ areaOfTriangles();
 
 mocha.setup("bdd");
 
+const assert = chai.assert;
+
 //Tests
 
 //Correct working
@@ -98,3 +100,5 @@ describe("Verify that function Palindrome accepts incorrect data ", function () 
     );
   });
 });
+
+mocha.run();

@@ -4,6 +4,8 @@ areaOfTriangles();
 
 mocha.setup("bdd");
 
+const assert = chai.assert;
+
 //Correct working
 describe("Verify that function Fibonacci is working correct", function () {
   it("Function Fibonacci with context {min: 7, max: 33} return [8, 13, 21]", function () {
@@ -107,3 +109,6 @@ describe("Verify that function Fibonacci accepts incorrect parameters", function
     );
   });
 });
+
+
+mocha.run();

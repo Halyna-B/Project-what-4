@@ -4,6 +4,8 @@ attachEnvelope();
 
 mocha.setup("bdd");
 
+const assert = chai.assert;
+
 //Tests
 
 //Correct working
@@ -117,4 +119,4 @@ describe("Verify that function attachEnvelope accepts incorrect arguments", func
   });
 });
 
-
+mocha.run();
