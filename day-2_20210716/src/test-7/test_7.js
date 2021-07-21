@@ -1,6 +1,6 @@
 function Fibonacci(numb) {}
 
-areaOfTriangles();
+Fibonacci();
 
 mocha.setup("bdd");
 

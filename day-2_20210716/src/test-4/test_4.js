@@ -1,6 +1,6 @@
 function Palindrome(numb) {}
 
-areaOfTriangles();
+Palindrome();
 
 mocha.setup("bdd");
 

@@ -1,6 +1,6 @@
 function numberSequence(numb) {}
 
-areaOfTriangles();
+numberSequence();
 
 mocha.setup("bdd");
 

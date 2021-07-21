@@ -1,6 +1,6 @@
 function happyTicket(numb) { }
 
-areaOfTriangles();
+happyTicket();
 
 mocha.setup("bdd");
 
