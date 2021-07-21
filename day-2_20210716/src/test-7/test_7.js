@@ -63,14 +63,14 @@ describe("Verify that function Fibonacci accepts incorrect parameters", function
   it("Function Fibonacci with {min: 0, max: 0} return an empty array ", function () {
     assert.equal(
       Fibonacci({ min: 0, max: 0 }),
-      `{status:'failed', reason:TypeError: Function should have a numeric range, max field should be > 0}`
+      `{status:'failed', reason:TypeError: Wrong arguments was given. Function should have a numeric range, max field should be > 1}`
     );
   });
 
   it("Function Fibonacci with {length: 0} return an empty array ", function () {
     assert.equal(
       Fibonacci({ length: 0 }),
-      `{status:'failed', reason:TypeError: Function should have a numeric range, length should be > 0}`
+      `{status:'failed', reason:TypeError: Wrong arguments was given. Function should have a numeric range, length should be > 1}`
     );
   });
 
