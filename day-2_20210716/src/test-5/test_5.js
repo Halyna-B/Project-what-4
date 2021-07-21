@@ -1,4 +1,4 @@
-function happyTicket({min: a, max: b}) { }
+function happyTicket(context) { }
 
 happyTicket();
 
@@ -84,3 +84,5 @@ describe("Verify that function happyTicket accepts incorrect parameters", functi
       );
     });
 })
+
+mocha.run();
