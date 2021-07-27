@@ -11,21 +11,15 @@
 */
 
 
-function happyTicket(num) {
-    let ticket = String(num);
-  
-    const zeros = { 1: "00000", 2: "0000", 3: "000", 4: "00", 5: "0" };
-    ticket = zeros[`${ticket.length}`] + ticket;
-    const sum1 = ticket
-      .split("")
-      .slice(0, 3)
-      .reduce((acc, el) => (acc += Number(el)), 0);
-    const sum2 = ticket
-      .split("")
-      .slice(3, 6)
-      .reduce((acc, el) => (acc += Number(el)), 0);
-    return sum1 === sum2 ? "YES" : "NO";
-  }
+function happyTicket(num) {  
+  const zeros = [000000, 00000, 0000, 000, 00, 0, ''];
+  const ticket = `${ zeros[String(num).length] }${ num }`;
+
+  const sum = ticket
+    .split("")
+    .reduce((acc, el, i) => acc[~~(i / 3)] += Number(el), [0, 0]);
+  return sum[0] === sum[1] ? "YES" : "NO";
+}
   
   console.log(happyTicket(1010));
   
