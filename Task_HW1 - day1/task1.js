@@ -14,7 +14,7 @@ Cколько в действительности банок краски нео
 
 function repair(L, W, H) {
   const s = 2 * (H * L + H * W);
-  return Math.round(s / 16);
+  return Math.ceil(s / 16);
 }
 
 console.log(repair(150.43, 326.689, 300.432));
