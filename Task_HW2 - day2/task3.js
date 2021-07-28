@@ -6,6 +6,10 @@ String will never be empty and you do not need to account for different data typ
 
 function shortestWord(str) {
   try {
+    if (typeof str !== "string") {
+      throw new TypeError("Input argument should be a string");
+    }
+
     const arrOfWords = str.split(" ");
     const arrOfLength = arrOfWords.map((el) => el.length);
     return Math.min(...arrOfLength);
