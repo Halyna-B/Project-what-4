@@ -7,15 +7,15 @@ Note: You will be always given non-empty array containing Positive values.
 function sumMin(arr) {
   try {
     if (!Array.isArray(arr) || !arr.some((subarr) => Array.isArray(subarr))) {
-      throw new TypeError("Input must be a 2D array of size m * n ");
+      throw new TypeError("Input argument must be a 2D array of size m * n ");
     }
 
     if (arr.flat(Infinity).some((num) => typeof num !== "number")) {
-      throw new TypeError("Input array should contain numbers");
+      throw new TypeError("Input array should contains numbers");
     }
 
     if (arr.flat(Infinity).some((num) => num < 0)) {
-      throw new TypeError("Input array should contain only positive numbers");
+      throw new TypeError("Input array should contains only positive numbers");
     }
 
     const minimalNumbers = arr.map((el) => Math.min(...el));
