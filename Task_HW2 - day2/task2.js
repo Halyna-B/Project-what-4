@@ -7,25 +7,21 @@ The order of the numbers passed in could be any order. The array will always inc
 */
 /*
 function twoOldestAges(arr) {
-  try {
-    if (!Array.isArray(arr)) {
-      throw new TypeError("Input must be array");
-    }
-
     const firstOldest = Math.max(...arr);
     arr.splice(arr.indexOf(firstOldest), 1);
     const secondOldest = Math.max(...arr);
     return [secondOldest, firstOldest];
-  } catch (e) {
-    return `${e.name}: ${e.message}`;
-  }
 }
 */
 
 function twoOldestAges(arr) {
   try {
     if (!Array.isArray(arr)) {
-      throw new TypeError("Input must be array");
+      throw new TypeError("Input argument must be array");
+    }
+
+    if (arr.flat(Infinity).some((num) => typeof num !== "number")) {
+      throw new TypeError("Input array should contain numbers");
     }
 
     return arr.reduce(
