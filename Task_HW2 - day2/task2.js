@@ -12,7 +12,7 @@ function twoOldestAges(arr) {
       throw new TypeError("Input argument must be array");
     }
 
-    if (arr.flat(Infinity).some((num) => typeof num !== "number")) {
+    if (!arr.every((num) => typeof num === "number")) {
       throw new TypeError("Input array should contain numbers");
     }
 
