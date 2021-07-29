@@ -18,7 +18,7 @@ function sortString(str) {
     }
 
     if (str === "") {
-      return `""`;
+      return "";
     }
 
     if (!numReg.test(str)) {
