@@ -28,8 +28,8 @@ function sortString(str) {
     const arr = str.split(" ");
     const result = arr.reduce((acc, el) => {
       acc[el.match(numReg) - 1] = el;
-      return acc }, []);
-    return `${result}`;
+      return acc }, []).join();
+    return result;
   } catch (err) {
     return `${err.name}: ${err.message}`;
   }
