@@ -9,7 +9,7 @@ Task 1: Count IP Addresses
 function subtractionIP(firstIPv4, secondIPv4){
     try{
 
-        const regIP = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+        const regIP = /^(([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])(\.(?!$)|$)){4}$/;
 
         if(!typeof firstIPv4==='string' && !typeof secondIPv4==='string'){
             throw new TypeError("Input arguments should be strings");
@@ -19,12 +19,15 @@ function subtractionIP(firstIPv4, secondIPv4){
             throw new Error("Input strings should be valid IPv4 addresses");
         }
 
-
-
-
-
-
-
+        const IPtoNumber = (ip) => {
+            return ip.split('.').reduce((acc, el) => Number(el) + acc * 256, 0);
+        }
+    
+        const firstNumb = IPtoNumber(firstIPv4);
+        const secondNumb = IPtoNumber(secondIPv4);
+        return secondNumb - firstNumb;
+    
+     
     }catch(err){
         return `${err.name}: ${err.message}`
     }
