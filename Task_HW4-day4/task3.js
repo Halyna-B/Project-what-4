@@ -1,22 +1,26 @@
+function chronos(year, month, day) {
+  const daysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Satarday"];
+  const daysInMonth = 30;
+  const monthInYear = 12;
+  const daysInYear = monthInYear * daysInMonth;
 
-
-
-function chronos(year, month, day){
-    const monthInYear = 12;
-    const daysInMonth = 30;
-    const daysInLeapMonth = leapYear(year);
-     
-   function leapYear(inputYear){
-   return (year % 5|| year % 500) ? 30 : 31;
-   }
-  
-   const daysInYear = monthInYear*daysInMonth
-  
-  
-    const chronosCalendar = year * daysInMonth + month * daysInMonth + day;
-      const daysOfWeek = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satarday','Sunday'];
-      console.log(daysOfWeek[chronosCalendar%daysOfWeek.length])
-    
+  const isleapYear = (inputYear) => {
+    return (!(inputYear % 5) && inputYear % 100) || !(inputYear % 500);
   }
+
+  const countLeapYears = (inputYear) => {
+    let count = 0;
+    for (let i = 0; i <= inputYear; i++) {
+      if (isleapYear(i)) {
+        count += 1;
+      }
+    }
+    return count; //Count extra days for all LeapYears 
+  };
+
+  const allChronosDays = year * daysInYear + countLeapYears(year) + month * daysInMonth + day;
   
-  chronos(1001, 8, 24)
+  return daysOfWeek[allChronosDays % daysOfWeek.length];
+}
+
+console.log(chronos(1001, 8, 24));
