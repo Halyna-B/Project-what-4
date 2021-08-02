@@ -10,6 +10,28 @@
 */
 
 function happyTicket(context) {
+    try {
+
+        if(typeof context !== 'object'){
+            throw new TypeError("Input argument 'context' must be an object with fields min and max")
+        }
+
+        if(typeof context.min !== 'number' || typeof context.max !== 'number'){
+            throw new TypeError("In object 'context' fields min and max must be numbers")
+        }
+
+        if(!Number.isInteger(context.min) || !Number.isInteger(context.max) ){
+            throw new TypeError("In object 'context' fields min and max must be integer numbers")
+        }
+
+        if( context.min < 0 || context.min >999999){
+            throw new Error("In object 'context' fields min and max must be greater than 0 and less than 999999 ")
+        }
+
+        if( context.max < 0 || context.max >999999){
+            throw new Error("In object 'context' fields min and max must be greater than 0 and less than 999999 ")
+        }
+
   let numbers = Object.values(context);
   const minNumb = Math.min(...numbers);
   const maxNumb = Math.max(...numbers);
@@ -38,6 +60,9 @@ function happyTicket(context) {
     tickets: { simple: simpleCount.length, hard: hardCount.length },
   };
   return answer;
+} catch (err) {
+    return `${err.name}: ${err.message}`;
+  }
 }
 
 console.log(happyTicket({ min: 42999, max: 43003 }));

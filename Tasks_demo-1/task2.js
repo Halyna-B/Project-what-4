@@ -8,4 +8,7 @@
 
 */
 
-function attachEnvelope(env1, env2) {}
+function attachEnvelope(env1, env2) {
+
+    
+}
