@@ -56,8 +56,8 @@ describe("Verify that function chessBoard return correct data type", function ()
       assert.isString(chessBoard(2, 3, "*"), "Return type of data string");
     });
   
-    it("Function chessBoard with length - 9, width - 33, symbol - '$' return type of data - string", function () {
-      assert.isString(chessBoard(9, 33, "$"), "Return type of data string");
+    it("Function chessBoard with length - 9, width - 15, symbol - '$' return type of data - string", function () {
+      assert.isString(chessBoard(9, 15, "$"), "Return type of data string");
     });
   });  
 
@@ -77,9 +77,9 @@ describe("Verify that function chessBoard accepts incorrect arguments", function
     );
   });
 
-  it("Chess Board with length - 7, width - 25, symbol - 3", function () {
+  it("Chess Board with length - 7, width - 10, symbol - 3", function () {
     assert.equal(
-      chessBoard(7, 25, 3),
+      chessBoard(7, 10, 3),
       `{status:'failed', reason:'TypeError: Incorrect value was given, symbol should be a string'}`
     );
   });
