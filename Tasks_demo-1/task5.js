@@ -9,4 +9,7 @@
 Выход: объект с информацией о победившем методе и количестве счастливых билетов для каждого способа подсчёта.
 */
 
-function happyTicket(context) {}
+function happyTicket(context) {
+    const numbers = Object.values(context);
+    
+}

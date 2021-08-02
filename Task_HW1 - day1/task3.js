@@ -12,14 +12,15 @@
 
 
 function happyTicket(num) {  
-  const zeros = [000000, 00000, 0000, 000, 00, 0, ''];
+  const zeros = ['000000', '00000', '0000', '000', '00', '0', ''];
   const ticket = `${ zeros[String(num).length] }${ num }`;
 
   const sum = ticket
     .split("")
-    .reduce((acc, el, i) => acc[~~(i / 3)] += Number(el), [0, 0]);
+    .reduce((acc, el, i) => {acc[~~(i / 3)]+= Number(el); return acc}, [0,0] );
+    console.log(sum)
   return sum[0] === sum[1] ? "YES" : "NO";
 }
   
-  console.log(happyTicket(1010));
+  console.log(happyTicket(071));
   
