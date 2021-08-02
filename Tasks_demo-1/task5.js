@@ -65,4 +65,4 @@ function happyTicket(context) {
   }
 }
 
-console.log(happyTicket({ min: 42999, max: 43003 }));
+console.log(happyTicket({min: 100000, max: 455555}));
