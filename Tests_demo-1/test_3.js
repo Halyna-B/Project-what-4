@@ -23,25 +23,25 @@ describe("Verify that function areaOfTriangles is working correct", function () 
     );
   });
 
-  it("Function areaOfTriangles return ['DFE', 'ABC', 'MKN']", function () {
+  it("Function areaOfTriangles return [ 'DFE', 'MKN', 'ABC' ]", function () {
     assert.equal(
       areaOfTriangles([
         { vertices: "ABC", a: 12, b: 25, c: 27.9 },
         { vertices: "DFE", d: 45.89, f: 71.31, e: 100 },
         { vertices: "MKN", m: 30.79, k: 23.03, n: 30.79 }
       ]),
-      ['DFE', 'ABC', 'MKN']
+      [ 'DFE', 'MKN', 'ABC' ]
     );
   });
 
-  it("Function areaOfTriangles return ['MKN', 'DFE', 'ABC']", function () {
+  it("Function areaOfTriangles return ['DFE', 'ABC', 'MKN']", function () {
     assert.equal(
       areaOfTriangles([
         { vertices: "ABC", a: 53.1, b: 70.85, c: 25.7 },
         { vertices: "DFE", d: 69.51, f: 37.84, e: 77.9 },
         { vertices: "MKN", m: 51.9, k: 31.72, n: 80 }
       ]),
-      ['MKN', 'DFE', 'ABC']
+      ['DFE', 'ABC', 'MKN']
     );
   });
 
