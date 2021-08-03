@@ -1,4 +1,4 @@
-function areaOfTriangles(...triangles) { }
+function areaOfTriangles(triangles) { }
 
 areaOfTriangles();
 
