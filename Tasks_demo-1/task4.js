@@ -6,4 +6,29 @@
 Выход: извлеченный из числа палиндром либо 0, если извлечение не удалось.
 */
 
-function Palindrome(numb) {}
+function findPalindrome(numb){
+    const findStr = String(numb);
+    let maxLength = 2;
+    let longerPalindrome = '';
+  
+    function isPalindrome(str){
+    const reverseStr = str.split('').reverse().join('');
+    return str === reverseStr
+  }
+  
+    for(let i = 0; i < findStr.length; i++){
+      const subs = findStr.substr(i, findStr.length);
+      for(let j = subs.length; j >= 0; j--){
+        const subSubStr = subs.substr(0, j);
+        if(subSubStr.length <= 1)
+        continue;
+  
+        if (isPalindrome(subSubStr)){
+          if(subSubStr.length >= maxLength)
+            maxLength = subSubStr.length;
+            longerPalindrome = subSubStr;
+        }
+      }
+    }
+  return longerPalindrome || 0
+  }
