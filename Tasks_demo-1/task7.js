@@ -6,13 +6,21 @@
 Выход: массив чисел
 */
 
-function Fibonacci(context) {
-  if (context.hasOwnProperty("length")) countNumb = context.length;
-  const fibArr = [0, 1].slice(0, countNumb);
+// function Fibonacci(context) {
+//   if (context.hasOwnProperty("length")) countNumb = context.length;
+//   const fibArr = [0, 1].slice(0, countNumb);
 
-  while (fibArr.length < countNumb) {
-    fibArr.push(fibArr.slice(-2).reduce((acc, el) => acc + el));
-  }
+//   while (fibArr.length < countNumb) {
+//     fibArr.push(fibArr.slice(-2).reduce((acc, el) => acc + el));
+//   }
 
-  return fibArr;
-}
+//   return fibArr;
+// }
+
+function fibonacci(context){
+    if (context.hasOwnProperty("length"))
+    return  Array.from(context).reduce(
+       (acc, _, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i),
+       []
+     );
+   }
