@@ -13,23 +13,23 @@ function happyTicket(context) {
     try {
 
         if(typeof context !== 'object'){
-            throw new TypeError("Input argument 'context' must be an object with fields min and max")
+            throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument 'context' must be an object with fields min and max`}
         }
 
         if(typeof context.min !== 'number' || typeof context.max !== 'number'){
-            throw new TypeError("In object 'context' fields min and max must be numbers")
+            throw {status:'failed', reason: `TypeError: incorrect arguments was accept, in object 'context' fields min and max must be numbers`}
         }
 
         if(!Number.isInteger(context.min) || !Number.isInteger(context.max) ){
-            throw new TypeError("In object 'context' fields min and max must be integer numbers")
+            throw {status:'failed', reason: `TypeError: incorrect arguments was accept, in object 'context' fields min and max must be integer numbers`}
         }
 
         if( context.min < 0 || context.min >999999){
-            throw new Error("In object 'context' fields min and max must be greater than 0 and less than 999999 ")
+            throw {status:'failed', reason: `RangeError: incorrect arguments was accept, in object 'context' fields min must be greater than 0 and less than 999999`}
         }
 
         if( context.max < 0 || context.max >999999){
-            throw new Error("In object 'context' fields min and max must be greater than 0 and less than 999999 ")
+            throw {status:'failed', reason: `RangeError: incorrect arguments was accept, in object 'context' fields max must be greater than 0 and less than 999999`}
         }
 
   let numbers = Object.values(context);
@@ -61,8 +61,7 @@ function happyTicket(context) {
   };
   return answer;
 } catch (err) {
-    return `${err.name}: ${err.message}`;
+    return `${err.status}, ${err.reason}`;
   }
 }
 
-console.log(happyTicket({min: 100000, max: 455555}));
