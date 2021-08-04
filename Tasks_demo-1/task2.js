@@ -11,19 +11,19 @@
 function attachEnvelope(env1, env2) {
   try{
     if(typeof env1 !== 'object' || typeof env2 !== 'object'){
-      throw new Error(`{status:'failed', reason:'TypeError: incorrect arguments was accept, function attachEnvelope should accepts two objects'}`)
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, function attachEnvelope should accepts two objects`}
   }
 
     const validEnv = (env) => {
       Object.values(env).forEach(el => {
       if(Number.isInteger(el)){
-        throw new Error(`{status:'failed', reason:'TypeError: incorrect arguments was accept, arguments of objects should be float numbers'}`)
+        throw {status:'failed', reason: `TypeError: incorrect arguments was accept, arguments of objects should be float numbers`}
       }
       if(el < 0){
-        throw new Error(`{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of objects should be > 0'}`)
+        throw {status:'failed', reason: `RangeError: incorrect numbers was accept, arguments of objects should be > 0`}
       }
       if(el > 1000000){
-        throw new Error(`{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of objects should be < 1000000'}`)
+        throw {status:'failed', reason: `RangeError: incorrect numbers was accept, arguments of objects should be < 1000000`}
       }
     })
   }
@@ -66,7 +66,7 @@ function attachEnvelope(env1, env2) {
     return 0;
   }
 }catch(err){
-return `${err.name}: ${err.message}`
+return `${err.status}, ${err.reason}`
 }
 }
 
