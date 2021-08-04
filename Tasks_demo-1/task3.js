@@ -22,7 +22,7 @@ function areaOfTriangles(triangles) {
 try{
 
   if(!Array.isArray(triangles)){
-    throw new Error(`{status:'failed', reason:'TypeError: incorrect arguments was accept, function areaOfTriangles should accepts an array with objects'}`)
+    throw {status:'failed', reason:'TypeError: incorrect arguments was accept, function areaOfTriangles should accepts an array with objects'}
   }
 
   triangles.forEach(el => {
@@ -33,16 +33,16 @@ try{
      thirdSide = val[3];
      nameTriangle = keys[1]+keys[2]+keys[3];
     if(nameTriangle !== val[0].toLowerCase()){
-      throw new Error(`{status:'failed', reason:TypeError: incorrect arguments was accept, the vertices of the triangle must match the side names}`)
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, the vertices of the triangle must match the side names`}
     }
     if(firstSide + secondSide < thirdSide || firstSide + thirdSide < secondSide || secondSide + thirdSide < firstSide){
-      throw new Error(`{status:'failed', reason:TypeError: incorrect arguments was accept, one of the objects is not a triangle}`)
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, one of the objects is not a triangle`}
     }
     if(firstSide < 0 || secondSide < 0 || thirdSide < 0){
-      throw new Error(`{status:'failed', reason:TypeError: the sides of the triangle must be positive numbers}`)
+      throw {status:'failed', reason: `RangeError: the sides of the triangle must be positive numbers`}
     }
     if(typeof firstSide !== 'number' ||typeof secondSide !== 'number' || typeof thirdSide !== 'number'){
-      throw new Error(`{status:'failed', reason:TypeError: the sides of the triangle must be numbers}`)
+      throw {status:'failed', reason: `TypeError: the sides of the triangle must be numbers`}
     }
   
   })
@@ -68,6 +68,6 @@ try{
   return sortedAreas(areasObj);
 
 }catch(err){
-  return `${err.name}: ${err.message}`
+  return `${err.status}, ${err.reason}`
 }
 }
