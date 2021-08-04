@@ -14,35 +14,35 @@ function chessBoard(length, width, symb) {
   try {
 
     if(typeof length !== 'number'){
-        throw new TypeError("Input argument 'length' must be a number")
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument ${length} must be a number`}
     }
 
     if(typeof width !== 'number'){
-        throw new TypeError("Input argument 'width' must be a number")
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument ${width} must be a number`}
     }
 
     if(!Number.isInteger(length)){
-        throw new TypeError("Input argument 'length' must be an integer number")
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument ${length} must be an integer number`}
     }
 
     if(!Number.isInteger(width)){
-        throw new TypeError("Input argument 'width' must be an integer number")
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument ${width} must be an integer number`}
     }
 
     if( length < 0 || length >20){
-        throw new Error("Input argument 'length' must be greater than 0 and less than 20 ")
+      throw {status:'failed', reason: `RangeError: incorrect arguments was accept, input argument ${length} must be greater than 0 and less than 20 `}
     }
 
     if( width < 0 || width >20){
-        throw new Error("Input argument 'width' must be greater than 0 and less than 20 ")
+      throw {status:'failed', reason: `RangeError: incorrect arguments was accept, input argument ${width} must be greater than 0 and less than 20 `}
     }
 
     if(typeof symb !== 'string'){
-        throw new TypeError("Input argument 'symbol' must be a string")
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument ${symb} must be a string`}
     }
 
     if(symb.length !== 1){
-        throw new Error("Input argument 'symbol' must be a single symbol with length 1")
+      throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument ${symb} must be a single symbol with length 1`}
     }
 
     let board = "";
@@ -54,6 +54,6 @@ function chessBoard(length, width, symb) {
     }
     return board;
   } catch (err) {
-    return `${err.name}: ${err.message}`;
+    return `${err.status}, ${err.reason}`;
   }
 }
