@@ -18,6 +18,35 @@ c: 22.36
 */
 
 function areaOfTriangles(triangles) {
+
+try{
+
+  if(!Array.isArray(triangles)){
+    throw new Error(`{status:'failed', reason:'TypeError: incorrect arguments was accept, function areaOfTriangles should accepts an array with objects'}`)
+  }
+
+  triangles.forEach(el => {
+     keys = Object.keys(el);
+     val  = Object.values(el);
+     firstSide = val[1];
+     secondSide = val[2];
+     thirdSide = val[3];
+     nameTriangle = keys[1]+keys[2]+keys[3];
+    if(nameTriangle !== val[0].toLowerCase()){
+      throw new Error(`{status:'failed', reason:TypeError: incorrect arguments was accept, the vertices of the triangle must match the side names}`)
+    }
+    if(firstSide + secondSide < thirdSide || firstSide + thirdSide < secondSide || secondSide + thirdSide < firstSide){
+      throw new Error(`{status:'failed', reason:TypeError: incorrect arguments was accept, one of the objects is not a triangle}`)
+    }
+    if(firstSide < 0 || secondSide < 0 || thirdSide < 0){
+      throw new Error(`{status:'failed', reason:TypeError: the sides of the triangle must be positive numbers}`)
+    }
+    if(typeof firstSide !== 'number' ||typeof secondSide !== 'number' || typeof thirdSide !== 'number'){
+      throw new Error(`{status:'failed', reason:TypeError: the sides of the triangle must be numbers}`)
+    }
+  
+  })
+
     
   function formHerona(a, b, c) {
     const p = (a + b + c) / 2;
@@ -37,4 +66,8 @@ function areaOfTriangles(triangles) {
   }
 
   return sortedAreas(areasObj);
+
+}catch(err){
+  return `${err.name}: ${err.message}`
+}
 }
