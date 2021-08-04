@@ -7,6 +7,24 @@
 */
 
 function findPalindrome(numb){
+  try{
+ 
+    if(typeof numb !== 'number'){
+      new Error(`{status:'failed', reason:TypeError: function's parameter must be a number, ${numb} is not a number}`)
+    }
+
+    if(!Number.isInteger(numb)){
+      throw new Error(`{status:'failed', reason:TypeError: function's parameter must be an integer number, ${numb} is not an integer number}`)
+    }
+
+    if(numb < 10){
+      throw new Error(`{status:'failed', reason: TypeError: function's parameter must be more or equal 10, ${numb} is not valid}`)
+    }
+    if(numb > 9007199254740991){
+      throw new Error(`{status:'failed', reason: TypeError: function's parameter must be less than 9007199254740991, ${numb} is not valid}`)
+    }
+
+
     const findStr = String(numb);
     let maxLength = 2;
     let longerPalindrome = '';
@@ -31,4 +49,8 @@ function findPalindrome(numb){
       }
     }
   return longerPalindrome || 0
+
+  }catch(err){
+    return `${err.name}: ${err.message}`
   }
+}
