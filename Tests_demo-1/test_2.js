@@ -50,7 +50,7 @@ describe("Verify that function attachEnvelope is working correct", function () {
 describe("Verify that function attachEnvelope return correct data type", function () {
   it("Function attachEnvelope with env1{a:123, b:59}, env2{c:75, d:37} return type of data - number", function () {
     assert.isNumber(
-      attachEnvelope({ a: 123, b: 59 }, { c: 75, d: 37 }),
+      attachEnvelope({ a: 123.0, b: 59.0 }, { c: 75.0, d: 37.0 }),
       "Return type of data number"
     );
   });
@@ -74,14 +74,14 @@ describe("Verify that function attachEnvelope return correct data type", functio
 describe("Verify that function attachEnvelope accepts incorrect arguments", function () {
   it("Function attachEnvelope accepts object with argument 0 ", function () {
     assert.equal(
-      attachEnvelope({ a: 0, b: 389.2 }, { c: 42, d: 81.2 }),
+      attachEnvelope({ a: 0, b: 389.2 }, { c: 42.0, d: 81.2 }),
       `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of this function should be > 0'}`
     );
   });
 
   it("Function attachEnvelope accepts object with arguments <= 0 ", function () {
     assert.equal(
-      attachEnvelope({ a: -31.95, b: 389.2 }, { c: -42, d: 81.2 }),
+      attachEnvelope({ a: -31.95, b: 389.2 }, { c: -42.0, d: 81.2 }),
       `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of objects should be > 0'}`
     );
   });
