@@ -7,10 +7,17 @@
 */
 
 function numberSequence(n, m) {
+  try{
+
   let squareNum = Math.round(Math.sqrt(m));
   const resultArr = [squareNum];
   for (let i = 1; i < n; i++) {
     resultArr.push((squareNum += 1));
   }
   return resultArr.join();
+}catch(err){
+  return `${err.name}: ${err.message}`
 }
+}
+
+console.log(numberSequence())
