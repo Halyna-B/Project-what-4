@@ -7,7 +7,17 @@
 */
 
 function numberSequence(n, m) {
+  
   try{
+      if(typeof n!== 'number' || typeof m!== 'number'){
+        throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input arguments must be numbers`}
+      }
+      if(!Number.isInteger(n)){
+        throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument ${n} must be an integer number`}
+      }
+      if( n <= 0 || m <= 0){
+        throw {status:'failed', reason: `RangeError: incorrect arguments was accept, input arguments must be greater than 0`}
+      }
 
   let squareNum = Math.round(Math.sqrt(m));
   const resultArr = [squareNum];
@@ -16,8 +26,8 @@ function numberSequence(n, m) {
   }
   return resultArr.join();
 }catch(err){
-  return `${err.name}: ${err.message}`
+  return `${err.status}, ${err.reason}`
 }
 }
 
-console.log(numberSequence())
+
