@@ -45,6 +45,6 @@ function chessBoard(length, width, symb) {
     }
     return board;
   } catch (err) {
-    return `${err.status}, ${err.reason}`;
+    return err;
   }
 }
