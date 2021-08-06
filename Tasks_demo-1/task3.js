@@ -68,6 +68,6 @@ try{
   return sortedAreas(areasObj);
 
 }catch(err){
-  return `${err.status}, ${err.reason}`
+  return err
 }
 }
