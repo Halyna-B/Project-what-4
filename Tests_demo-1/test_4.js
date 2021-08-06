@@ -61,42 +61,42 @@ describe("Verify that function Palindrome accepts incorrect data ", function () 
   it("Function Palindrome accepts incorrect parameter - string '53235107' ", function () {
     assert.equal(
       findPalindrome("53235107"),
-      `{status:'failed', reason:TypeError: function's parameter must be a number, '53235107' is not a number}`
+      `{status:'failed', reason: 'TypeError: function's parameter must be a number, "53235107" is not a number'}`
     );
   });
 
   it("Function Palindrome accepts incorrect parameter - array [61675555555] ", function () {
     assert.equal(
       findPalindrome([61675555555]),
-      `{status:'failed', reason:TypeError: function's parameter must be a number, [61675555555] is not a number}`
+      `{status:'failed', reason: 'TypeError: function's parameter must be a number, [61675555555] is not a number'}`
     );
   });
 
   it("Function Palindrome accepts incorrect amount of parameters ", function () {
     assert.equal(
       findPalindrome(),
-      `{status:'failed', reason:TypeError: missing 1 required argument, function should accepts a number}`
+      `{status:'failed', reason: 'TypeError: missing 1 required argument, function should accepts a number'}`
     );
   });
 
   it("Function Palindrome accepts incorrect amount of parameters - two numbers ", function () {
     assert.equal(
       findPalindrome(131, 333333),
-      `{status:'failed', reason:TypeError: function should requires only one parameter }`
+      `{status:'failed', reason: 'TypeError: function should requires only one parameter'}`
     );
   });
 
   it("Function Palindrome accepts incorrect parameter - float 3.131 ", function () {
     assert.equal(
       findPalindrome(3.131),
-      `{status:'failed', reason:TypeError: function's parameter must be an integer number, 3.131 is not an integer number}`
+      `{status:'failed', reason: 'TypeError: function's parameter must be an integer number, 3.131 is not an integer number'}`
     );
   });
 
   it("Function Palindrome accepts incorrect parameter - negative number -7337351 ", function () {
     assert.equal(
       findPalindrome(-7337351),
-      `{status:'failed', reason:TypeError: function's parameter must be a positive number, -7337351 is a negative number}`
+      `throw {status:'failed', reason: 'RangeError: function's parameter must be more or equal 10, -7337351 is not valid'}`
     );
   });
 });
