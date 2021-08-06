@@ -66,35 +66,35 @@ describe("Verify that function chessBoard accepts incorrect arguments", function
   it("Chess Board with length - -6, width - 20, symbol - '*'", function () {
     assert.equal(
       chessBoard(-6, 20, "*"),
-      `{status:'failed', reason:'TypeError: Incorrect value was given, length should be a positive number'}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, input argument -6 must be greater than 0'}`
     );
   });
 
   it("Chess Board with length - 13, width - -19, symbol - '*'", function () {
     assert.equal(
       chessBoard(13, -19, "*"),
-      `{status:'failed', reason:'TypeError: Incorrect value was given, width should be a positive number'}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, input argument -19 must be greater than 0'}`
     );
   });
 
   it("Chess Board with length - 7, width - 10, symbol - 3", function () {
     assert.equal(
       chessBoard(7, 10, 3),
-      `{status:'failed', reason:'TypeError: Incorrect value was given, symbol should be a string'}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input argument 3 must be a string'}`
     );
   });
 
   it("Chess Board with length - [6], width - 15, symbol -'#", function () {
     assert.equal(
       chessBoard([6], 15, "*"),
-      `{status:'failed', reason:'TypeError: Wrong arguments, length should be a number'}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input argument [6] must be a number'}`
     );
   });
 
-  it("Chess Board with length - 12, width - '*', symbol -20", function () {
+  it("Chess Board with length - 12, width - '*', symbol -'#'", function () {
     assert.equal(
-      chessBoard(12, "*", 20),
-      `{status:'failed', reason:'TypeError: Wrong arguments, width should be a number and symbol should be a string'}`
+      chessBoard(12, "*", "#"),
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input argument '*' must be a number'}`
     );
   });
 });
