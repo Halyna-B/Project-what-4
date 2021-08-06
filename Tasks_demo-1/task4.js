@@ -51,7 +51,7 @@ function findPalindrome(numb){
   return longerPalindrome || 0
 
   }catch(err){
-    return `${err.status}, ${err.reason}`
+    return err
   }
 }
 
