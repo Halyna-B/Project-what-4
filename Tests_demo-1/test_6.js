@@ -1,4 +1,4 @@
-function numberSequence(numb) {}
+function numberSequence(n, m) {}
 
 numberSequence();
 
@@ -55,42 +55,42 @@ describe("Verify that function numberSequence accepts incorrect parameters", fun
   it("Function numberSequence with n = 0 m = 23 return an empty string ", function () {
     assert.equal(
       numberSequence(0, 23),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, n should be > 0}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, input arguments must be greater than 0'}`
     );
   });
 
   it("Function numberSequence with n = -3 m = 217 return Error ", function () {
     assert.equal(
       numberSequence(-3, 217),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, n should be a positive number}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, input arguments must be greater than 0'}`
     );
   });
 
   it("Function numberSequence with n = 5.9 m = 331 return Error ", function () {
     assert.equal(
       numberSequence(5.9, 331),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, n should be an integer number}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input argument 5.9 must be an integer number'}`
     );
   });
 
   it("Function numberSequence with n = 3 m = [25] return Error ", function () {
     assert.equal(
       numberSequence(3, [25]),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, m should be a number}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input arguments must be numbers'}`
     );
   });
 
   it("Function numberSequence with n = 7 m = '46' return Error ", function () {
     assert.equal(
       numberSequence(7, '46'),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, m should be a number}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input arguments must be numbers'}`
     );
   });
 
   it("Function numberSequence with [n = 7 m = 33] return Error ", function () {
     assert.equal(
       numberSequence([7, 46]),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, function should accepts two argumrnts n and m}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input arguments must be numbers'}`
     );
   });
 });
