@@ -91,7 +91,7 @@ describe("Verify that accepts objects in a function areaOfTriangles are not tria
           { vertices: "DFE", d: 69.51, f: 37.84, e: 77.9 },
           { vertices: "MKN", m: 51.9, k: 31.72, n: 80 }
         ]), 
-        `{status:'failed', reason:TypeError: argument of this function should be an array of objects with triangles, 'ABC' is not triangle}`
+        `{status:'failed', reason: 'TypeError: incorrect arguments was accept, one of the objects is not a triangle'}`
       );
     });
   
@@ -102,7 +102,7 @@ describe("Verify that accepts objects in a function areaOfTriangles are not tria
           { vertices: "DFE", d: 0.7, f: 31.84, e: 22.1 },
           { vertices: "MKN", m: 4, k: 1.24, n: 3 }
         ]), 
-        `{status:'failed', reason:TypeError: argument of this function should be an array of objects with triangles, 'DFE' is not triangle}`
+        `{status:'failed', reason: 'TypeError: incorrect arguments was accept, one of the objects is not a triangle'}`
       );
     });
   
@@ -119,7 +119,7 @@ describe("Verify that accepts objects in a function areaOfTriangles are not corr
           { vertices: "MKN", m: 7.97, k: '3.61', n: 7 },
           { vertices: "FEO", f: 9.12, e: 23.03, o: 30.79 }
         ]),
-        `{status:'failed', reason:TypeError: the sides of the triangle must be numbers, 'k' should be equal a number}`
+        `{status:'failed', reason: 'TypeError: the sides of the triangle must be numbers'}`
       );
     });
   
@@ -130,7 +130,7 @@ describe("Verify that accepts objects in a function areaOfTriangles are not corr
             { vertices: "DFE", d: 2.35, f: 1.79, e: -1.56 },
             { vertices: "MKN", m: 7.97, k: 3.61, n: 7 }
           ]),
-        `{status:'failed', reason:TypeError: the sides of the triangle must be positive numbers, 'e' should be equal a positive number}`
+        `{status:'failed', reason: 'RangeError: the sides of the triangle must be positive numbers'}`
       );
     });  
 
