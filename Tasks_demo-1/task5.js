@@ -12,7 +12,7 @@
 function happyTicket(context) {
     try {
 
-        if(typeof context !== 'object'){
+        if(typeof context !== 'object' || !Array.isArray(context)){
             throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input argument 'context' must be an object with fields min and max`}
         }
 

@@ -56,31 +56,31 @@ describe("Verify that function happyTicket return correct data", function () {
 describe("Verify that function happyTicket accepts incorrect parameters", function () {
     it("Function happyTicket with context {min: 0, max: 766846} return Error ", function () {
         assert.equal(happyTicket({min: 0, max: 766846}),
-        `{status:'failed', reason:TypeError: Wrong arguments was given, function should accepts a context object with min and max fields > 0}`
+        `{status:'failed', reason: 'RangeError: incorrect arguments was accept, in object 'context' fields min must be greater than 0 and less than 999999'}`
       );
     });
 
     it("Function happyTicket with array [min: 1, max: 766846] return Error ", function () {
         assert.equal(happyTicket([1, 766846]),
-        `{status:'failed', reason:TypeError: Wrong arguments was given, function should accepts a context object with min and max fields}`
+        `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input argument 'context' must be an object with fields min and max'}`
       );
     });
 
     it("Function happyTicket with context {min: 467, max: 272.842} return Error ", function () {
         assert.equal(happyTicket({min: 467, max: 272.842}),
-        `{status:'failed', reason:TypeError: Wrong arguments was given, function should accepts a context object with integer numbers}`
+        `{status:'failed', reason: 'TypeError: incorrect arguments was accept, in object 'context' fields min and max must be integer numbers'}`
       );
     });
 
     it("Function happyTicket with empty parameter return Error ", function () {
         assert.equal(happyTicket(),
-        `{status:'failed', reason:TypeError: Wrong arguments was given, Wrong arguments was given, function should accepts a context object with min and max fields}`
+        `{status:'failed', reason:TypeError: Wrong arguments was given, function should accepts a context object with min and max fields}`
       );
     });
 
     it("Function happyTicket with context {min: '223546', max: 453790} return Error ", function () {
         assert.equal(happyTicket({min: '223546', max: 453790}),
-        `{status:'failed', reason:TypeError: Wrong arguments was given, Wrong arguments was given, min and max fields should be a number}`
+        `{status:'failed', reason: 'TypeError: incorrect arguments was accept, in object 'context' fields min and max must be integer numbers'}`
       );
     });
 })
