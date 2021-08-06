@@ -26,7 +26,7 @@ function fibonacci(context) {
         throw {status:'failed', reason: `TypeError: incorrect arguments was accept, input arguments of object must be an integer number`}
       }
       if( el < 1 ){
-        throw {status:'failed', reason: `RangeError: incorrect arguments was accept, input arguments of object must be greater than 0`}
+        throw {status:'failed', reason: `RangeError: incorrect arguments was accept, input arguments of object must be greater than 1`}
       }
     }
 
