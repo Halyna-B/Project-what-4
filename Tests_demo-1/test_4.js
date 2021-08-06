@@ -96,7 +96,7 @@ describe("Verify that function Palindrome accepts incorrect data ", function () 
   it("Function Palindrome accepts incorrect parameter - negative number -7337351 ", function () {
     assert.equal(
       findPalindrome(-7337351),
-      `throw {status:'failed', reason: 'RangeError: function's parameter must be more or equal 10, -7337351 is not valid'}`
+      `{status:'failed', reason: 'RangeError: function's parameter must be more or equal 10, -7337351 is not valid'}`
     );
   });
 });
