@@ -61,7 +61,7 @@ function happyTicket(context) {
   };
   return answer;
 } catch (err) {
-    return `${err.status}, ${err.reason}`;
+    return err
   }
 }
 
