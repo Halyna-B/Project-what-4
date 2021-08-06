@@ -64,7 +64,7 @@ function fibonacci(context) {
   return fibArr
   }
   }catch(err){
-    return `${err.status}, ${err.reason}`
+    return err
   }
 }
 
