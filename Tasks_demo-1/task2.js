@@ -66,7 +66,7 @@ function attachEnvelope(env1, env2) {
     return 0;
   }
 }catch(err){
-return `${err.status}, ${err.reason}`
+return err
 }
 }
 
