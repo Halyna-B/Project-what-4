@@ -63,49 +63,49 @@ describe("Verify that function Fibonacci accepts incorrect parameters", function
   it("Function Fibonacci with {min: 0, max: 0} return an empty array ", function () {
     assert.equal(
       fibonacci({ min: 0, max: 0 }),
-      `{status:'failed', reason:TypeError: Wrong arguments was given. Function should have a numeric range, max field should be > 1}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, input arguments of object must be greater than 1'}`
     );
   });
 
   it("Function Fibonacci with {length: 0} return an empty array ", function () {
     assert.equal(
       fibonacci({ length: 0 }),
-      `{status:'failed', reason:TypeError: Wrong arguments was given. Function should have a numeric range, length should be > 1}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, input arguments of object must be greater than 1'}`
     );
   });
 
   it("Function Fibonacci with {length: -7} return Error ", function () {
     assert.equal(
       fibonacci({ length: -7 }),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, length should be a positive number}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, input arguments of object must be greater than 1'}`
     );
   });
 
   it("Function Fibonacci with {length: '3'} return Error ", function () {
     assert.equal(
       fibonacci({ length: "3" }),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, length should be a positive number}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input arguments of object must be a number'}`
     );
   });
 
   it("Function Fibonacci with [3, 8] return Error ", function () {
     assert.equal(
       fibonacci([3, 8]),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, function should accepts a context object with min and max fields, or with a length field }`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input argument 'context' must be an object'}`
     );
   });
 
   it("Function Fibonacci with {min: 23, max: 9} return Error ", function () {
     assert.equal(
       fibonacci({ min: 23, max: 9 }),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, max field should be greater than min field}`
+      `{status:'failed', reason: 'RangeError: incorrect arguments was accept, in object 'context' value 'max' must be greater than value 'min'}`
     );
   });
 
   it("Function Fibonacci with {min: '8', max: '23'} return Error ", function () {
     assert.equal(
       fibonacci({ min: "8", max: "23" }),
-      `{status:'failed', reason:TypeError: Wrong arguments was given, min and max fields should be a number}`
+      `{status:'failed', reason: 'TypeError: incorrect arguments was accept, input arguments of object must be a number'}`
     );
   });
 });
