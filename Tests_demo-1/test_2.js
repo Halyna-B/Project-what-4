@@ -75,28 +75,28 @@ describe("Verify that function attachEnvelope accepts incorrect arguments", func
   it("Function attachEnvelope accepts object with argument 0 ", function () {
     assert.equal(
       attachEnvelope({ a: 0, b: 389.2 }, { c: 42.0, d: 81.2 }),
-      `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of this function should be > 0'}`
+      `{status:'failed', reason: 'RangeError: incorrect numbers was accept, arguments of objects should be > 0'}`
     );
   });
 
   it("Function attachEnvelope accepts object with arguments <= 0 ", function () {
     assert.equal(
       attachEnvelope({ a: -31.95, b: 389.2 }, { c: -42.0, d: 81.2 }),
-      `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of objects should be > 0'}`
+      `{status:'failed', reason: 'RangeError: incorrect numbers was accept, arguments of objects should be > 0'}`
     );
   });
 
   it("Function attachEnvelope accepts object with arguments strings ", function () {
     assert.equal(
       attachEnvelope({ a: "1795.87", b: 8423.8 }, { c: "c", d: 3961.9 }),
-      `{status:'failed', reason:'TypeError: incorrect data type was accept, arguments of objects should be equal number'}`
+      `{status:'failed', reason:'TypeError: incorrect data type was accept, arguments of objects should be numbers'}`
     );
   });
 
   it("Function attachEnvelope accepts object with arguments > 1000000 ", function () {
     assert.equal(
       attachEnvelope({ a: 14832.39, b: 94217.96 }, { c: 2368916.92, d: 49282.92 }),
-      `{status:'failed', reason:'TypeError: incorrect numbers was accept, arguments of objects should be < 1000000'}`
+      `{status:'failed', reason: 'RangeError: incorrect numbers was accept, arguments of objects should be < 1000000'}`
     );
   });
 

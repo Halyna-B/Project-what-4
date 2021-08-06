@@ -16,6 +16,9 @@ function attachEnvelope(env1, env2) {
 
     const validEnv = (env) => {
       Object.values(env).forEach(el => {
+      if(typeof el !== 'number'){
+        throw {status:'failed', reason: `TypeError: incorrect data type was accept, arguments of objects should be numbers`}
+      }
       if(Number.isInteger(el)){
         throw {status:'failed', reason: `TypeError: incorrect arguments was accept, arguments of objects should be float numbers`}
       }
