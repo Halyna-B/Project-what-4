@@ -26,7 +26,7 @@ function numberSequence(n, m) {
   }
   return resultArr.join();
 }catch(err){
-  return `${err.status}, ${err.reason}`
+  return err;
 }
 }
 
