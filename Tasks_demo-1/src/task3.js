@@ -17,7 +17,7 @@ c: 22.36
 }
 */
 
-function areaOfTriangles(triangles) {
+export function areaOfTriangles(triangles) {
 
 try{
 

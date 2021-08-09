@@ -9,7 +9,7 @@
 Выход: объект с информацией о победившем методе и количестве счастливых билетов для каждого способа подсчёта.
 */
 
-function happyTicket(context) {
+export function happyTicket(context) {
     try {
 
         if(typeof context !== 'object' || !Array.isArray(context)){

@@ -6,7 +6,7 @@
 Выход: массив чисел
 */
 
-function fibonacci(context) {
+export function fibonacci(context) {
 
   try{
     

@@ -10,7 +10,7 @@
 Выход: строка с представлением шахматной доски
 */
 
-function chessBoard(length, width, symb) {
+export function chessBoard(length, width, symb) {
   try {
 
     [length, width].forEach(argument => {

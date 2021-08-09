@@ -6,7 +6,7 @@
 Выход: извлеченный из числа палиндром либо 0, если извлечение не удалось.
 */
 
-function findPalindrome(numb){
+export function findPalindrome(numb){
   try{
  
     if(typeof numb !== 'number'){

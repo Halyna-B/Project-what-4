@@ -8,7 +8,7 @@
 
 */
 
-function attachEnvelope(env1, env2) {
+export function attachEnvelope(env1, env2) {
   try{
     if(typeof env1 !== 'object' || typeof env2 !== 'object'){
       throw {status:'failed', reason: `TypeError: incorrect arguments was accept, function attachEnvelope should accepts two objects`}

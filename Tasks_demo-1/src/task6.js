@@ -6,7 +6,7 @@
 Выход: строка с рядом чисел
 */
 
-function numberSequence(n, m) {
+export function numberSequence(n, m) {
   
   try{
       if(typeof n!== 'number' || typeof m!== 'number'){
