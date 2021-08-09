@@ -6,3 +6,4 @@ import { happyTicket } from "./src/task5";
 import { numberSequence } from "./src/task6";
 import { fibonacci } from "./src/task7";
 
+chessBoard();

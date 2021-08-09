@@ -1,6 +1,4 @@
-function chessBoard(length, width, symb) {}
 
-chessBoard();
 
 mocha.setup("bdd");
 const assert = chai.assert;
@@ -141,3 +139,4 @@ describe("Verify that function chessBoard return incorrect data type", function 
   });
 });
 
+mocha.run();

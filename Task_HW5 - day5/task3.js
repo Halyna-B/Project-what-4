@@ -4,7 +4,7 @@
 
 function clerk(arr){
 
-  const re = arr.reduce((acc, el) => {
+  const result = arr.reduce((acc, el) => {
 if(el===25){
   acc[0]+= 1;
   return acc;
@@ -21,5 +21,5 @@ return acc[0] < 0 || acc[1] < 0  ? 'NO' : acc;
 }
   }, [0,0,0]);
 
-return re !=='NO'? 'YES' : 'NO'
+return result !=='NO'? 'YES' : 'NO'
 }
