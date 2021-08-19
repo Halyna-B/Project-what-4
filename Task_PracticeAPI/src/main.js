@@ -35,7 +35,7 @@ const getRoleName = role => {
     return roles[role]
 }
 
-const renderUser = ({name, surname, email, job, company, interests, status, role, avatar}) => {
+const renderUser = ({name, surname, email, job, company, interests, status, role}) => {
     const {statusName, style} = getStatusNameStyle(status);
     const roleName = getRoleName(role)
     return `
@@ -79,4 +79,58 @@ const renderUser = ({name, surname, email, job, company, interests, status, role
     `
 }
 
-getData('https://retoolapi.dev/AylGwL/data')
+
+
+const mockPost = {
+company: "SoftServe",
+email: "softDev@io.com",
+id: 38,
+interests: "IT",
+job: "Web Developer",
+name: "Polina",
+role: 3,
+status: true,
+surname: "Stradisson"
+}
+
+const postData = user => {
+    const url = 'https://retoolapi.dev/SN6LvB/data';
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+        body: JSON.stringify(user)
+
+    })
+}
+// postData(mockPost);
+
+const mockPut = {
+    company: "SoftServe",
+    email: "softDev@io.com",
+    id: 38,
+    interests: "Swimming",
+    job: "Java Developer",
+    name: "Polina",
+    role: 1,
+    status: true,
+    surname: "Stradisson"
+    }
+
+    const putData = user => {
+        const url = 'https://retoolapi.dev/SN6LvB/data/38';
+        fetch(url, {
+            method: 'PUT',
+            cache: 'no-cache', 
+            headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          },
+            body: JSON.stringify(user)
+        })
+    }
+    
+    // putData(mockPut);
+
+getData('https://retoolapi.dev/SN6LvB/data')
+
